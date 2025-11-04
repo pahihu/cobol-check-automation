@@ -13,9 +13,17 @@ jobs:
        distribution: 'zulu'
        java-version: '11'
    - name: Setup Mainframe Environment and Upload COBOL Check
+     uses: richardnas/zowe-action@v1
+     with:
+       ZOSMF_OPTION_NAME: ${{ secrets.ZOWE_NAME }}
+       ZOSMF_OPTION_HOST: ${{ secrets.ZOWE_HOST }}
+       ZOSMF_OPTION_PORT: ${{ secrets.ZOWE_PORT }}
+       ZOSMF_OPTION_USER: ${{ secrets.ZOWE_USERNAME }}
+       ZOSMF_OPTION_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
+       ZOSMF_OPTION_REJECT_UNAUTHORIZED: ${{ secrets.ZOWE_REJECT_UNAUTHORIZED }}
      env:
        ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
        ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
-     run: |
+   - run: |
        chmod +x .github/scripts/zowe_operations.sh
        .github/scripts/zowe_operations.sh
