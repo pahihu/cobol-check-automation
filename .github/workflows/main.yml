@@ -41,5 +41,5 @@ jobs:
        ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
        ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
      run: |
-       sshpass -p "$ZOWE_PASSWORD" ssh -o StrictHostKeyChecking=no ${ZOWE_USERNAME}@${ZOWE_HOST} mainframe_operations.sh
+       sshpass -p "$ZOWE_PASSWORD" ssh -o StrictHostKeyChecking=no ${ZOWE_USERNAME}@${ZOWE_HOST} bash ./mainframe_operations.sh
        
