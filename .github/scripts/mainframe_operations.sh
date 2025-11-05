@@ -62,8 +62,8 @@ run_cobolcheck() {
     fi
     
     # Submit job
-    if [ -f "./testruns/CC##99.CBL" ] && [ -f "${program}" ]; then
-        submit "//'${ZOWE_USERNAME}.CBL($program)'"
+    if [ -f "./testruns/CC##99.CBL" ] && [ -f "${program}.JCL" ]; then
+        submit "//'${ZOWE_USERNAME}.JCL($program)'"
     fi
 }
 
