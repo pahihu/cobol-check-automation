@@ -8,7 +8,7 @@ export JAVA_HOME=/usr/lpp/java/J8.0_64
 export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
 
 # Check Java availability
-java-version
+java -version
 
 # get ZOWE_USERNAME from environment
 ZOWE_USERNAME=$(whoami) # Replace with the actual username
@@ -17,7 +17,7 @@ ZOWE_USERNAME=$(whoami) # Replace with the actual username
 cd
 cd cobolcheck
 echo "Changed to $(pwd)"
-ls-al
+ls -al
 
 # Make cobolcheck executable
 chmod +x cobolcheck
@@ -35,7 +35,7 @@ run_cobolcheck() {
     echo "Running cobolcheck for $program"
     
     # Run cobolcheck, but don't exit if it fails
-    ./cobolcheck $program
+    ./cobolcheck -p $program
     echo "Cobolcheck execution completed for $program (exceptions may have occurred)"
     
     # Check if CC##99.CBL was created, regardless of cobolcheck exit status
