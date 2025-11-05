@@ -17,7 +17,7 @@ fi
 zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck" --recursive --binary-files "cobol-check-0.2.19.jar"
 
 # Upload mainframe script
-zowe zos-files upload file-to-uss "./github/scripts/mainframe_operations.sh" "/z/$LOWERCASE_USERNAME/mainframe_operations.sh"
+zowe zos-files upload file-to-uss "./.github/scripts/mainframe_operations.sh" "/z/$LOWERCASE_USERNAME/mainframe_operations.sh"
 
 # Verify upload
 echo "Verifying upload:"
