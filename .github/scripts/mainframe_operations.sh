@@ -73,6 +73,13 @@ run_cobolcheck() {
 for program in NUMBERS ALPHA EMPPAY DEPTPAY; do
     run_cobolcheck $program
 done
+# Submit each JCL
+for program in NUMBERS ALPHA EMPPAY DEPTPAY; do
+    if [ -f "${program}.JCL" ]; then
+        echo "Submit JOB "//'${ZOWE_USERNAME}.JCL($program)'"
+        submit "//'${ZOWE_USERNAME}.JCL($program)'"
+    fi    
+done
 echo "Mainframe operations completed"
 
  
