@@ -61,6 +61,8 @@ run_cobolcheck() {
         echo "${program}.JCL not found"
     fi
     
+    # NB. the .CBL gets locked by the COBOL compiler running, only the 1st
+    #     copy succeeds above, if the jobs submitted
     # Submit job
     # if [ -f "./testruns/CC##99.CBL" ] && [ -f "${program}.JCL" ]; then
     #    submit "//'${ZOWE_USERNAME}.JCL($program)'"
