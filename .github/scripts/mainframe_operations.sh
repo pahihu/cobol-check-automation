@@ -60,6 +60,11 @@ run_cobolcheck() {
     else
         echo "${program}.JCL not found"
     fi
+    
+    # Submit job
+    if [ -f "./testruns/CC##99.CBL" ] && [ -f "${program}" ]; then
+        submit "//'${ZOWE_USERNAME}.CBL($program)'"
+    fi
 }
 
 # Run for each program
