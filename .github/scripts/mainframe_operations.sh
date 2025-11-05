@@ -63,7 +63,7 @@ run_cobolcheck() {
 }
 
 # Run for each program
-for program in NUMBERS ALPHA; do
+for program in NUMBERS ALPHA EMPPAY DEPTPAY; do
     run_cobolcheck $program
 done
 echo "Mainframe operations completed"
