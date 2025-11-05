@@ -76,7 +76,7 @@ done
 # Submit each JCL
 for program in NUMBERS ALPHA EMPPAY DEPTPAY; do
     if [ -f "${program}.JCL" ]; then
-        echo "Submit JOB "//'${ZOWE_USERNAME}.JCL($program)'"
+        echo "Submit job ${ZOWE_USERNAME}.JCL($program)"
         submit "//'${ZOWE_USERNAME}.JCL($program)'"
     fi    
 done
