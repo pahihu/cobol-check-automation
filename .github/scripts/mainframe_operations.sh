@@ -10,8 +10,8 @@ export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
 # Check Java availability
 java-version
 
-# Set ZOWE_USERNAME
-ZOWE_USERNAME="Z99998" # Replace with the actual username
+# get ZOWE_USERNAME from environment
+ZOWE_USERNAME=$(whoami) # Replace with the actual username
 
 # Change to the cobolcheck directory
 cd cobolcheck
@@ -34,7 +34,7 @@ run_cobolcheck() {
     echo "Running cobolcheck for $program"
     
     # Run cobolcheck, but don't exit if it fails
-    ./cobolcheck-p $program
+    ./cobolcheck $program
     echo "Cobolcheck execution completed for $program (exceptions may have occurred)"
     
     # Check if CC##99.CBL was created, regardless of cobolcheck exit status
@@ -50,7 +50,7 @@ run_cobolcheck() {
     fi
     
     # Copy the JCL file if it exists
-    if [-f "${program}.JCL" ]; then
+    if [ -f "${program}.JCL" ]; then
         if cp ${program}.JCL "//'${ZOWE_USERNAME}.JCL($program)'"; then
             echo "Copied ${program}.JCL to ${ZOWE_USERNAME}.JCL($program)"
         else
